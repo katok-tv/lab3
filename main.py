@@ -23,7 +23,7 @@ def create_bmp_header(width, height):
     reserved_1 = 0
     reserved_2 = 0
     pixel_data_offset = 62      # 54 + 8
-    file_size = pixel_data_offset + 1 * width * height
+    file_size = pixel_data_offset + width * height
     return pack("<hi2hi", file_type, file_size, reserved_1, reserved_2, pixel_data_offset)
 
 
@@ -48,7 +48,7 @@ def create_info_header(width, height):
 def create_color_table():
     color_1 = (0, 0, 0, 0)
     color_2 = (255, 255, 255, 0)
-    return pack("<8B", *color_1, *color_2)  # * - распаковка кортежа
+    return pack("<8B", *color_1, *color_2)
 
 
 def write_file(step, width, height, filename):
