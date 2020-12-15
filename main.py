@@ -52,7 +52,7 @@ def create_color_table():
 
 
 def write_file(step, width, height, filename):
-    with open(f".bmp {filename}", "wb") as f:
+    with open(f"{filename}.bmp", "wb") as f:
         f.write(create_bmp_header(width, height))
         f.write(create_info_header(width, height))
         f.write(create_color_table())
